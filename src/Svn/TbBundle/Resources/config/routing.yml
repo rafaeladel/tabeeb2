@@ -1,0 +1,28 @@
+svn_tb_homepage:
+    pattern:  /
+    defaults: { _controller: SvnTbBundle:Default:index }
+
+svn_tb_get_booking:
+    pattern: /booking
+    defaults: { _controller: SvnTbBundle:Default:getBooking }
+    methods: [GET]
+
+svn_tb_post_booking:
+    pattern: /booking
+    defaults: { _controller: SvnTbBundle:Default:postBooking }
+    methods: [POST]
+
+svn_tb_get_reason:
+    pattern: /admin/reason
+    defaults: { _controller: SvnTbBundle:Default:getAddReason }
+    methods: [GET]
+
+svn_tb_post_reason:
+    pattern: /reason
+    defaults: { _controller: SvnTbBundle:Default:postAddReason }
+    methods: [POST]
+
+svn_tb_get_booking_finish:
+    pattern: /booking/info/{id}
+    defaults: { _controller: SvnTbBundle:Default:getBookingFinish }
+    methods: [GET]

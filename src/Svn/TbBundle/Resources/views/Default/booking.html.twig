@@ -1,0 +1,60 @@
+{% extends "SvnTbBundle::layout.html.twig" %}
+
+{% block javascript %}
+    <script src="{{ asset("bundles/svntb/js/jquery-1.9.1.js") }}"></script>
+    <script src="{{ asset("bundles/svntb/js/jquery.datetimepicker.js") }}"></script>
+    <script src="{{ asset("bundles/svntb/js/main.js") }}"></script>
+{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset("bundles/svntb/css/jquery.datetimepicker.css") }}"/>
+{% endblock %}
+
+{% block content %}
+
+    <div class="innerMainArea">
+        <div style="width:945px; padding-left:25px; padding-top:25px; padding-bottom:15px; margin:0 auto">
+            <span class="title">Manage Booking</span>
+        </div>
+    </div>
+
+    <div class="innerMainGray">
+    <div class="innerGrayClip">
+
+        <div style="background-color:#FFF; border-top-left-radius:5px; border-top-right-radius:5px; border-bottom-left-radius:5px; border-bottom-right-radius:5px; padding-top:10px; padding-bottom:15px">
+            <div style="padding-bottom:5px">
+                <img src="{{ asset("bundles/svntb/images/bookingSteps_01.gif") }}" />
+            </div><br clear="all" />
+
+            <div style="float:right; width:300px"><img src="{{ asset("bundles/svntb/images/doctorImage.jpg") }}" style="float:left; padding-right:10px; padding-bottom:30px" />
+                <span class="title">Dr. Marwan Sayed Hassan</span><br /><br />
+                <a href="#">Name of Specialization</a><br />
+                <a href="#">Clinic name</a><br /><br />
+                2 Sherif St - El Lwaa Building Bab El Louk, Cairo<br />
+                <img src="{{ asset("bundles/svntb/images/rating3.gif") }}" style="padding-right:15px; padding-top:5px;" align="bottom" />
+            </div>
+            <div style="float:left; width:600px; padding-left:15px">
+                {{ form_start(appointment_form, {"action": path("svn_tb_post_booking")}) }}
+                    <span class="title">Selected  Appointment</span><br /><br />
+                    {{ form_widget(appointment_form.date) }}
+                    {{ form_errors(appointment_form.date) }}
+                    <a href="#" id="picker" style="padding-left:50px">
+                        <img src="{{ asset("bundles/svntb/images/calendarIcon.jpg") }}" border="0" /> Click here to change Appointment time
+                    </a><br /><br />
+                    <label class="custom-select">
+                        Reason To Visit
+                        {{ form_widget(appointment_form.reason) }}
+                        {{ form_errors(appointment_form.reason) }}
+                    </label><br /><br />
+                    {{ form_widget(appointment_form.description, {'attr':{'class':'textbox', 'placeholder':'Description', 'style':'width:500px; height:150px'} }) }}
+                    {{ form_errors(appointment_form.description) }}
+                    {{ form_rest(appointment_form) }}
+                {{ form_end(appointment_form) }}
+            </div>
+            <br clear="all" />
+        </div><br clear="all" />
+
+    </div>
+</div>
+
+{% endblock %}

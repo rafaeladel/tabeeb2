@@ -1,0 +1,46 @@
+{% extends "SvnTbBundle::layout.html.twig" %}
+{% block content %}
+    <div class="innerMainArea">
+        <div style="width:945px; padding-left:25px; padding-top:25px; padding-bottom:15px; margin:0 auto">
+            <span class="title">Manage Booking</span>
+        </div>
+    </div>
+
+    <div class="innerMainGray">
+        <div class="innerGrayClip">
+
+            <div style="background-color:#FFF; border-top-left-radius:5px; border-top-right-radius:5px; border-bottom-left-radius:5px; border-bottom-right-radius:5px; padding-top:10px; padding-bottom:15px">
+                <div style="padding-bottom:5px">
+                    <img src="{{ asset("bundles/svntb/images/bookingSteps_04.gif") }}" />
+                </div><br clear="all" />
+
+                <div style="float:left; padding-left:15px; width:900px">
+                    <span class="title">Appointment Booked</span><br /><br />
+                    You have successfully booked your appointment, if you have any additional questions feel free to contact the clinic of<br /><br />
+
+                    <img src="{{ asset("bundles/svntb/images/doctorImage.jpg") }}" style="float:left; padding-right:10px; padding-bottom:30px; padding-left:50px" />
+                    <span class="title">Dr. Marwan Sayed Hassan</span><br /><br />
+                    <a href="#">Name of Specialization</a><br />
+                    <a href="#">Clinic name</a><br /><br />
+                    Clinic Telephone: +2 262729192<br />
+                    <br />
+                    2 Sherif St - El Lwaa Building Bab El Louk, Cairo<br clear="all" />
+
+                    <div style="padding-bottom:5px"><span class="title">My appointment at</span></div>
+                    {{ appointment.date|date("D, d \\o\\f M \\a\\t H:m") }}<br /><br />
+
+                    <div style="padding-bottom:5px"><span class="title">Reasone:</span></div>
+                    {{ appointment.reason.reason }}<br /><br />
+
+                    <div style="padding-bottom:5px"><span class="title">Description:</span></div>
+                    {{ appointment.description }}<br /><br />
+                    <form action="{{ path("svn_tb_homepage") }}" method="get">
+                        <button type="submit" value="" style="width: 120px; height: 22px; font-size:14px">Book</button><br /><br />
+                    </form>
+                </div>
+                <br clear="all" />
+            </div><br clear="all" />
+
+        </div>
+    </div>
+{% endblock %}

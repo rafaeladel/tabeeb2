@@ -1,0 +1,7 @@
+parameters:
+#    svn_tb.example.class: Svn\TbBundle\Example
+
+services:
+#    svn_tb.example:
+#        class: %svn_tb.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

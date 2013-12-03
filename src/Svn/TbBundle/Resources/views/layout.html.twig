@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tabeeb.net</title>
+    <link rel="STYLESHEET" type="text/css" href="{{ asset("bundles/svntb/css/ui-lightness/jquery-ui-1.10.3.custom.min.css") }}">
+    <link rel="STYLESHEET" type="text/css" href="{{ asset("bundles/svntb/css/style.css") }}">
+    {% block javascript %}
+    {% endblock %}
+    {% block stylesheet %}
+    {% endblock %}
+</head>
+
+<body style="overflow-y:scroll">
+
+<div class="langDiv">
+    <div class="langSelect">
+        <div class="langOptionDiv" style="padding-right:25px">
+            <a href="#" style="line-height: 22px">Fr</a>
+        </div>
+        <div class="langOptionDiv">
+            <a href="#" style="line-height: 22px">Ar</a>
+        </div>
+        <div class="langSelectedDiv">En</div>Change language
+    </div>
+</div>
+
+<div class="logoAndLogin">
+    <div class="siteLogo">
+        <a href="{{ path("svn_tb_homepage") }}">
+            <img src="{{ asset("bundles/svntb/images/siteLogo.gif") }}" border="0" />
+        </a>
+    </div>
+    {% if is_granted("ROLE_USER") %}
+        <a style="float:right;color: white;font-size: 14px;" href="{{ path("fos_user_security_logout") }}">Logout</a>
+        <p style="float:right;color: white;font-size: 14px;">Hello, {{ app.user.username }}</p>
+    {% else %}
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            {#<input type="hidden" name="_csrf_token" value="{{ token }}" />#}
+            <div class="loginBtnDiv"><button type="submit" value="" style="width: 60px; height: 22px">Login</button></div>
+            <div class="passDiv">
+                <input name="_password" required="required" class="textbox" placeholder="Password" type="password" value="" style="width:140px; height:18px">
+                <br />
+                <a href="{{ path("fos_user_resetting_request") }}" class="whiteLinks" style="line-height:25px">Forgot your password?</a>
+            </div>
+            <div class="nameDiv">
+                <input name="_username" required="required" class="textbox" placeholder="Username" type="text" value="" style="width:140px; height:18px">
+                <br />
+                <input type="checkbox" name="_remember_me" style="border:0" value="on" />
+                <span class="redAreaText" style="line-height:25px">Keep me logged in</span>
+            </div>
+        </form>
+    {% endif %}
+</div>
+
+{% block content %}{% endblock %}
+
+
+<div class="redAreaText" style="margin:0 auto; width:950px; padding:7px" align="center">
+    <span style="line-height:20px"><a href="#" class="whiteLinks">Home</a> | <a href="#" class="whiteLinks">About</a> | <a href="press.html" class="whiteLinks">Press</a> | <a href="#" class="whiteLinks">Careers</a> | <a href="#" class="whiteLinks">Contact us</a> | <a href="#" class="whiteLinks">FAQs</a><br />
+Copyright ©2013 all right reserved for <a href="#" class="whiteLinks">Tabeeb.net</a></span>
+</div>
+
+</body>
+</html>
